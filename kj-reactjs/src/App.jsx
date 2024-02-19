@@ -3,12 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import FormComponent from './component/FormComponent.jsx'
+import DashBoard from './component/DashBoard.jsx'
+import Table from './Table.jsx'
 
 function App() {
 
   return (
     <>
-      <FormComponent />
+      {/* <FormComponent /> */}
+      <DashBoard />
+      <Table />
     </>
   )
 }

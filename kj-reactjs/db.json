@@ -1,0 +1,38 @@
+{
+  "machines": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "borrowed": [
+    {
+      "name": "John",
+      "amount": 2,
+      "machine": 3
+    },
+    {
+      "name": "Alice",
+      "amount": 1,
+      "machine": 7
+    },
+    {
+      "id": "3ef3",
+      "name": "Fame",
+      "amount": "2",
+      "machine": "4"
+    },
+    {
+      "id": "6024",
+      "name": "Tui",
+      "amount": "2",
+      "machine": "4"
+    }
+  ]
+}

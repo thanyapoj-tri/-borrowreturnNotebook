@@ -15,11 +15,15 @@ const FormComponent = () => {
     const machines = Array.from({ length: count }, (_, index) => index + 1);
   
     return (
-     
+      
         machines.map((machine) => (
-          <select key={machine}>
-            <option value={machine}>Machine {machine}</option>
-          </select>
+          <select>
+          {[...Array(10)].map((_,machine) => (
+            <option key={machine} value={machine+1}>
+              Machine {machine+1}
+            </option>
+          ))}
+        </select>
         ))
       
     );
