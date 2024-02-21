@@ -1,37 +1,81 @@
 {
   "machines": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10
+    {
+      "value": "1",
+      "id": "6e21"
+    },
+    {
+      "value": "2",
+      "id": "c6ee"
+    },
+    {
+      "value": "3",
+      "id": "2284"
+    },
+    {
+      "value": "4",
+      "id": "4832"
+    },
+    {
+      "value": "5",
+      "id": "ade3"
+    },
+    {
+      "value": "6",
+      "id": "de3a"
+    },
+    {
+      "value": "7",
+      "id": "e168"
+    },
+    {
+      "value": "8",
+      "id": "4612"
+    },
+    {
+      "value": "9",
+      "id": "5863"
+    },
+    {
+      "value": "10",
+      "id": "5233"
+    }
   ],
   "borrowed": [
     {
+      "id": "1",
       "name": "John",
       "amount": 2,
       "machine": 3
     },
     {
+      "id": "2",
       "name": "Alice",
       "amount": 1,
       "machine": 7
     },
     {
-      "id": "3ef3",
-      "name": "Fame",
-      "amount": "2",
+      "id": "7db8",
+      "name": "fame",
+      "amount": "",
       "machine": "4"
     },
     {
-      "id": "6024",
-      "name": "Tui",
-      "amount": "2",
+      "id": "3fb8",
+      "name": "f2",
+      "amount": "",
+      "machine": "2"
+    },
+    {
+      "id": "fdfd",
+      "name": "f3",
+      "amount": "",
+      "machine": "3"
+    },
+    {
+      "id": "16c8",
+      "name": "new",
+      "amount": "3",
       "machine": "4"
     }
   ]

@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,} from 'react';
 import axios from 'axios';
 
-const MachineDropdown = ({ count }) => {
+const MachineDropdown = ({ machines }) => {
   return (
     <div>
-      {[...Array(count)].map((_, index) => (
-        <select key={index}>
-          {[...Array(10)].map((_, optionIndex) => (
-            <option key={optionIndex} value={optionIndex + 1}>
-              Machine {optionIndex + 1}
-            </option>
-          ))}
-        </select>
-      ))}
+      <select>
+        {machines.map((machine, index) => (
+          <option key={index} value={machine.value}>
+            Machine {machine.value}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
@@ -28,7 +26,11 @@ function BorrowReturnApp() {
     // Fetch available machines from the server
     axios.get('http://localhost:3000/machines')
       .then(response => {
-        setAvailableMachines(response.data);
+        // Extract the machines array from the response data
+        const machinesArray = response.data && response.data;
+        if (machinesArray) {
+          setAvailableMachines(machinesArray);
+        }
       })
       .catch(error => {
         console.error('Error fetching available machines:', error);
@@ -40,7 +42,7 @@ function BorrowReturnApp() {
     const newBorrow = { name, amount, machine };
     setBorrowed([...borrowed, newBorrow]);
     // Update available machines
-    const updatedMachines = availableMachines.filter(m => m !== machine);
+    const updatedMachines = availableMachines.filter(m => m.value !== machine);
     setAvailableMachines(updatedMachines);
     // Make a POST request to update the server
     axios.post('http://localhost:3000/borrowed', newBorrow)
@@ -81,13 +83,20 @@ function BorrowReturnApp() {
           <option value="3">3</option>
         </select>
       </label>
-      {amount > 1 && <MachineDropdown count={amount} />}
+      {amount > 1 && <MachineDropdown machines={availableMachines} />}
       <label>
         Machine:
         <select value={machine} onChange={(e) => setMachine(e.target.value)}>
-          {availableMachines.map(m => (
-            <option key={m} value={m}>{m}</option>
-          ))}
+        {availableMachines.length > 0 ? (
+          availableMachines.map((machine, index) => (
+            <option key={index} value={machine.value}>
+              Machine {machine.value}
+            </option>
+          ))
+        ): (
+          <option value="">Loading...</option>
+        )}
+        
         </select>
       </label>
       <button onClick={handleSubmit}>Borrow</button>
